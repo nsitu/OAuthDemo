@@ -52,7 +52,7 @@ app.get('/auth/failure', (req,res)=>{
     res.send('something went wrong');
 })
 
-
+// this route can only be visited if you are loggedin.
 app.get('/protected', isLoggedIn, (req,res) =>{
     res.send('protected');
 })
