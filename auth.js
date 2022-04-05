@@ -1,35 +1,23 @@
-const passport = require('passport'); 
-
-// See alos: https://www.passportjs.org/packages/
+const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+
 passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.CALLBACK_URL
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    // after you have logged in
-    // you may want to fetch the user from the DB. 
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: "http://localhost:5000/auth/google/callback",
+  passReqToCallback: true,
+},
+function(request, accessToken, refreshToken, profile, done) {
+  return done(null, profile);
+}));
 
-    // the tokens in this context would allow users to access other google reources. 
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
 
-    /* User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });*/
-
-    // if there is no DB you could just return the profile. 
-    return done(null,profile);
-  }
-));
-
-
-// serialize
-passport.serializeUser(function(user,done){
-    done(null, user);
-})
-
-
-passport.deserializeUser(function(user,done){
-    done(null, user);
-})
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
