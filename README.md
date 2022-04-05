@@ -8,7 +8,7 @@ To use this code, you will need to [create a project](https://cloud.google.com/r
 The app uses the following environment variables. You should set these in a `.env` file or add them to your deployment environment. (e.g. "Secrets" on Replit, or "Config Vars" on Heroku).  
 - **GOOGLE_CLIENT_ID** Find/create this in your [Google Cloud Console](https://console.cloud.google.com/)  
 - **GOOGLE_CLIENT_SECRET** Find/create this in your [Google Cloud Console](https://console.cloud.google.com/) 
-- **GOOGLE_CALLBACK_URL** This is the URL to which Google will forward your users after a successful login. For example: http://localhost:5000/auth/google/callback or https://ixd-oauth-demo.herokuapp.com/auth/google/callback 
+- **GOOGLE_CALLBACK_URL** This is the URL to which Google will forward your users after a successful login, e.g: `http://localhost:5000/auth/google/callback` or `https://ixd-oauth-demo.herokuapp.com/auth/google/callback` 
 - **MONGODB_URI** Your connection string for MongoDB. If you're using a MongoDB's [free Atlas Cluster](https://www.mongodb.com/cloud/atlas/) it may look something like this: `mongodb+srv://dbuser:password@cluster0.xxxxx.mongodb.net/`
 
 
