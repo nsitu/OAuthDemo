@@ -1,16 +1,18 @@
 # Authenticate with Google: OAuth2 Demo  
-This is a [NodeJS](https://nodejs.org/en/) [Express](https://expressjs.com/) app to demonstrate authentication via Google. To simplify integration with Express, we use [Passport](https://www.passportjs.org/) (authentication middleware). Passport supports many identity providers (e.g. Twitter, Github, etc.) via authentication "[strategies](https://www.passportjs.org/packages/)". In this case we are using Passport's [Google OAuth 2.0 Strategy](https://www.passportjs.org/packages/passport-google-oauth20/) to handle everything.
+This is a [NodeJS](https://nodejs.org/en/) [Express](https://expressjs.com/) app to demonstrate authentication via Google. To simplify integration with Express, we use [Passport](https://www.passportjs.org/) (authentication middleware). Passport supports many identity providers (e.g. Twitter, Github, etc.) via authentication "[strategies](https://www.passportjs.org/packages/)". In this case we are using Passport's [Google OAuth 2.0 Strategy](https://www.passportjs.org/packages/passport-google-oauth20/) to handle everything. When authentication is completed, Passport adds the user to the session, and stores it in MongoDB.
 
 # Setup Google Cloud
 To use this code, you will need to [create a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects) on Google Cloud. You will also need to [Setup OAuth 2.0](https://support.google.com/cloud/answer/6158849) in your Google cloud project. This involves the creation of a Client ID and Secret, as well as a [consent screen](https://support.google.com/cloud/answer/6158849#userconsent&zippy=%2Cuser-consent) that users see when logging in. For a visual overview of this process, see also: [Sign in with Google](https://miro.com/app/board/uXjVOKzv9r8=/) (on Miro).
 
+# Setup MongoDB
+This app uses MongoDB to store user sessions, including the user's profile information. As such you will first need to setup MongoDB. It's easy and free to  create a [MongoDB Atlas Cluster](https://www.mongodb.com/cloud/atlas/). Once you have done this, you will need a connection string. You can find it via the "Connect" button next to your Cluster in the MongoDB Atlas Dashboard.
+
 # Environment Variables  
-The app uses the following environment variables. You should set these in a `.env` file or add them to your deployment environment. (e.g. "Secrets" on Replit, or "Config Vars" on Heroku).  
+This app connects to Google and MongoDB using secret credentials. In order for the app to function, you must add these credentials as environment variables. Set the following environment variables in a `.env` file or add them to your deployment environment. (e.g. "Secrets" on [Replit](https://replit.com/), or "Config Vars" on [Heroku](https://dashboard.heroku.com/)).  
 - **GOOGLE_CLIENT_ID** Find/create this in your [Google Cloud Console](https://console.cloud.google.com/)  
 - **GOOGLE_CLIENT_SECRET** Find/create this in your [Google Cloud Console](https://console.cloud.google.com/) 
 - **GOOGLE_CALLBACK_URL** This is the URL to which Google will forward your users after a successful login, e.g: `http://localhost:5000/auth/google/callback` or `https://ixd-oauth-demo.herokuapp.com/auth/google/callback` 
 - **MONGODB_URI** Your connection string for MongoDB. If you're using a MongoDB's [free Atlas Cluster](https://www.mongodb.com/cloud/atlas/) it may look something like this: `mongodb+srv://dbuser:password@cluster0.xxxxx.mongodb.net/`
-
 
 # Resources
 Here are some topically adjacent resources that you may find useful:  
