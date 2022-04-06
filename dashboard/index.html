@@ -23,6 +23,8 @@
           console.log(user);
 
           // show the profile picture
+          // set referrer policy to prevent cors errors
+          // see also: https://stackoverflow.com/a/61042200/17929842
           let profilePic = document.createElement('img')
           profilePic.setAttribute('referrerpolicy', 'no-referrer')
           profilePic.setAttribute('src', user.picture)
