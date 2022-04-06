@@ -33,15 +33,15 @@ passport.use( GoogleOAuth )
 
 // Passport converts user data (JSON) into plain text for session storage.
 // On subsequent requests, the text is converted back into JSON data.
-// This process is known as "serialization". It is customizable.
-// See also, for a different approach: 
+// This process is known as "serialization". It is customizable. 
+// For a discussion on other approaches, see also: https://stackoverflow.com/q/27637609/17929842
 passport.serializeUser( (user, done) => { done(null, user) })
 passport.deserializeUser( (user, done) => { done(null, user) })
 
 // initialize Express
 const app = express();
 
-// Public files can be served straight-up without authentication. 
+// Public files may be served immediately without authentication. 
 app.use('/', express.static('public'))
 
 // Enable Express Session Middleware. 
