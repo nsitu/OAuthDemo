@@ -9,9 +9,9 @@ This app uses MongoDB to store user sessions, including the user's profile infor
 
 # Environment Variables  
 This app connects to Google and MongoDB using secret credentials. In order for the app to function, you must add these credentials as environment variables. Set the following environment variables in a `.env` file or add them to your deployment environment. (e.g. "Secrets" on [Replit](https://replit.com/), or "Config Vars" on [Heroku](https://dashboard.heroku.com/)).  
-- **GOOGLE_CLIENT_ID** Find/create this in your [Google Cloud Console](https://console.cloud.google.com/)  
-- **GOOGLE_CLIENT_SECRET** Find/create this in your [Google Cloud Console](https://console.cloud.google.com/) 
-- **GOOGLE_CALLBACK_URL** This is the URL to which Google will forward your users after a successful login, e.g: `http://localhost:5000/auth/google/callback` or `https://ixd-oauth-demo.herokuapp.com/auth/google/callback` 
+- **GOOGLE_CLIENT_ID** You can [Set this up](https://github.com/nsitu/OAuthDemo#setup-google-cloud) in your [Google Cloud Console](https://console.cloud.google.com/). 
+- **GOOGLE_CLIENT_SECRET** You can [Set this up](https://github.com/nsitu/OAuthDemo#setup-google-cloud) in your [Google Cloud Console](https://console.cloud.google.com/) 
+- **GOOGLE_CALLBACK_URL** This is the URL to which Google will forward your users after a successful login. Locally, it might be something like this: `http://localhost:5000/auth/google/callback`. If you're deploying to Heroku, it might look something like this: `https://ixd-oauth-demo.herokuapp.com/auth/google/callback`.  
 - **MONGODB_URI** Your connection string for MongoDB. If you're using a MongoDB's [free Atlas Cluster](https://www.mongodb.com/cloud/atlas/) it may look something like this: `mongodb+srv://dbuser:password@cluster0.xxxxx.mongodb.net/`
 
 # Resources
@@ -24,7 +24,7 @@ Here are some topically adjacent resources that you may find useful:
 [https://github.com/bradtraversy/storybooks](https://github.com/bradtraversy/storybooks)  
 
 # Further Context and Notes  
-Depending on your needs, [Passport](https://www.passportjs.org/) may be a great fit because it simplifies NodeJS integration. However, Google does offer its own set of tools as well. If you want to explore beyond the limitations of this example, you may enjoy this additional links:
+Depending on your needs, [Passport](https://www.passportjs.org/) may be a great fit because it simplifies NodeJS integration. However, Google does offer its own set of tools as well. If you want to go beyond the limitations of this example, you may like to explore these additional links:
 - An in-depth [NodeJS Client Library](https://github.com/googleapis/google-api-nodejs-client) to addresses a wide set of server-side use cases. 
 - A general guide to [Using OAuth 2.0 for Web Server Applications](https://developers.google.com/identity/protocols/oauth2/web-server). 
 - A Google-centric approach to [Sign In With Google](https://developers.google.com/identity/gsi/web/guides/overview), via [Google Identity](https://developers.google.com/identity)

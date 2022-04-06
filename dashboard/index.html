@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <!-- Antona font via monotype. -->
+    <link href="https://cdn.fonts.net/kit/fa9ee2d0-7e46-11ec-9ce3-0220834439f4/fa9ee2d0-7e46-11ec-9ce3-0220834439f4.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+    <section id="profile"></section>
+    <section id="secretSauce">
+      Psst... Now that you're logged in, <br/> why not try some of our <a target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">secret sauce</a>!
+    </section>
+	  <a class="button" href="/logout">Logout</a>
+    <script>
+      fetch('/user')
+        .then( data=>data.json())
+        .then( user=>{
+          console.log(user);
+
+          // show the profile picture
+          let profilePic = document.createElement('img')
+          profilePic.setAttribute('referrerpolicy', 'no-referrer')
+          profilePic.setAttribute('src', user.picture)
+          document.querySelector('#profile').appendChild(profilePic);
+
+          // show the user's name
+          let profileName = document.createElement('h3')
+          profileName.textContent = user.name 
+          document.querySelector('#profile').appendChild(profileName);
+           
+          // show the user's email
+           let profileEmail = document.createElement('h5')
+          profileEmail.textContent = user.email 
+          document.querySelector('#profile').appendChild(profileEmail);
+
+        });
+    </script>
+  </body>
+</html>
+

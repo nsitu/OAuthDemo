@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'AntonaMedium';
+    background: #99bade;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: #fff;
+}
+ 
+h3, h5{
+    color: #4b5c6f; 
+   margin: 0;
+}   
+
+.button{
+    padding: 1rem 2rem;
+    background: #4b5c6f; 
+    color: #fff;
+    text-decoration: none;
+}
+.button:hover{
+    background: #5c96d3;
+}
+ 
+
+#profile img{
+    border-radius: 50%;
+}
+
+#secretSauce{
+    color: #dde9f6;
+    margin: 2rem;
+    padding: 2rem;
+    border: 1px solid white; 
+
+}
+#secretSauce a{
+    color: #fff;
+}
