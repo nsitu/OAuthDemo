@@ -113,4 +113,7 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-app.listen(5000, () => console.log('listening on port: 5000'));
+
+// get a PORT number from the environment or else use 5000 as default
+const PORT = process.env.PORT || 5000
+app.listen(PORT, () => console.log(`listening on port: ${PORT}`));
