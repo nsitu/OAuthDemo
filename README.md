@@ -27,4 +27,8 @@ Here are some topically adjacent resources that you may find useful:
 Depending on your needs, [Passport](https://www.passportjs.org/) may be a great fit because it simplifies NodeJS integration. However, Google does offer its own set of tools as well. If you want to go beyond the limitations of this example, you may like to explore these additional links:
 - An in-depth [NodeJS Client Library](https://github.com/googleapis/google-api-nodejs-client) to addresses a wide set of server-side use cases. 
 - A general guide to [Using OAuth 2.0 for Web Server Applications](https://developers.google.com/identity/protocols/oauth2/web-server). 
-- A Google-centric approach to [Sign In With Google](https://developers.google.com/identity/gsi/web/guides/overview), via [Google Identity](https://developers.google.com/identity)
+- A Google-centric approach to [Sign In With Google](https://developers.google.com/identity/gsi/web/guides/overview), via [Google Identity](https://developers.google.com/identity)  
+You may also like to read more about OAuth 2.0 in General:  
+- [https://oauth.net/2/](https://oauth.net/2/)  
+Furthermore the notion of Middleware is important in this app.  
+- [http://expressjs.com/en/guide/using-middleware.html](http://expressjs.com/en/guide/using-middleware.html)

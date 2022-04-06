@@ -1,6 +1,9 @@
 // Get environment variables from .env
 require('dotenv').config()
 
+const PORT = process.env.PORT || 5000
+const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
+
 // LIBRARIES
 // Express framework:  https://www.npmjs.com/package/express
 const express = require('express');             
@@ -18,7 +21,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const GoogleOAuth = new GoogleStrategy({
         clientID:     process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL:  '/auth/google/callback' 
+        callbackURL:  BASE_URL+'/auth/google/callback' 
     },  
     (accessToken, refreshToken, profile, done) => {
         // In this case, just return the user profile directly. 
@@ -31,11 +34,15 @@ const GoogleOAuth = new GoogleStrategy({
 // Implement The GoogleOAuth strategy configured above. 
 passport.use( GoogleOAuth ) 
 
+// Serializing Data
 // Passport converts user data (JSON) into plain text for session storage.
 // On subsequent requests, the text is converted back into JSON data.
 // This process is known as "serialization". It is customizable. 
-// For a discussion on other approaches, see also: https://stackoverflow.com/q/27637609/17929842
+// For a discussion on this, see also: https://stackoverflow.com/q/27637609/17929842
+
+// Passport.serializeUser persists user data in the session
 passport.serializeUser( (user, done) => { done(null, user) })
+//  Passport.deserializeUser retrieves user data from session
 passport.deserializeUser( (user, done) => { done(null, user) })
 
 // initialize Express
@@ -59,6 +66,7 @@ app.use(ExpressSession({
 
 // Initialize passport (authentication middleware)
 app.use(passport.initialize());
+// Initialize session. See also: https://stackoverflow.com/questions/22052258/
 app.use(passport.session());
 
 // Listen for clicks on the "Authenticate with Google" button
@@ -115,5 +123,4 @@ app.get('/logout', (req, res) => {
 
 
 // get a PORT number from the environment or else use 5000 as default
-const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`listening on port: ${PORT}`));
