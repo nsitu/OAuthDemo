@@ -1,7 +1,9 @@
 // Get environment variables from .env
 require('dotenv').config()
 
+// get a port number from the environment, or else default to 5000
 const PORT = process.env.PORT || 5000
+// get a base URL from the environment, or else assume localhost
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 // LIBRARIES

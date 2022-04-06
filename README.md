@@ -11,7 +11,7 @@ This app uses MongoDB to store user sessions, including the user's profile infor
 This app connects to Google and MongoDB using secret credentials. In order for the app to function, you must add these credentials as environment variables. Set the following environment variables in a `.env` file or add them to your deployment environment. (e.g. "Secrets" on [Replit](https://replit.com/), or "Config Vars" on [Heroku](https://dashboard.heroku.com/)).  
 - **GOOGLE_CLIENT_ID** You can [Set this up](https://github.com/nsitu/OAuthDemo#setup-google-cloud) in your [Google Cloud Console](https://console.cloud.google.com/). 
 - **GOOGLE_CLIENT_SECRET** You can [Set this up](https://github.com/nsitu/OAuthDemo#setup-google-cloud) in your [Google Cloud Console](https://console.cloud.google.com/) 
-- **GOOGLE_CALLBACK_URL** This is the URL to which Google will forward your users after a successful login. Locally, it might be something like this: `http://localhost:5000/auth/google/callback`. If you're deploying to Heroku, it might look something like this: `https://ixd-oauth-demo.herokuapp.com/auth/google/callback`.  
+- **BASE_URL** This is used in a production environment to define the public URL. For example, on Heroku, it might be something like this: `https://my-project.herokuapp.com`. If you're working locally you can leave this blank.
 - **MONGODB_URI** Your connection string for MongoDB. If you're using a MongoDB's [free Atlas Cluster](https://www.mongodb.com/cloud/atlas/) it may look something like this: `mongodb+srv://dbuser:password@cluster0.xxxxx.mongodb.net/`
 
 # Resources
